@@ -1,0 +1,54 @@
+"use client";
+
+import React, { useRef } from "react";
+import HTMLFlipBook from "react-pageflip"; // Default import from react-pageflip
+import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
+import { dancing_script } from "@/lib/fonts";
+
+export default function Home() {
+  const pageFlipRef = useRef<any>(null); // Reference to the flipbook instance
+
+  const line1 = `"Roses are red, violets are blue, My dear, my valentine's true."`;
+
+  // Function to flip to the next page
+  const handlePageTurn = () => {
+    if (pageFlipRef.current) {
+      pageFlipRef.current.flipNext(); // Flip to the next page
+    }
+  };
+
+  return (
+      <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl flex-col">
+        <div className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20">
+          <TextGenerateEffect
+            words={line1}
+            className={`text-5xl md:text-8xl lg:text-9xl ${dancing_script.className}`}
+          />
+        </div>
+
+        {/* PageFlip book animation */}
+        <div className="mt-8">
+          <div className="flex items-center justify-center h-screen bg-gray-100">
+            <HTMLFlipBook ref={pageFlipRef} width={300} height={400} className="shadow-lg">
+              <div className="demoPage">Page 1</div>
+              <div className="demoPage">Page 2</div>
+              <div className="demoPage">Page 3</div>
+              <div className="demoPage">Page 4</div>
+            </HTMLFlipBook>
+          </div>
+        </div>
+
+        {/* Button to interact with the flipbook */}
+        <button
+          className="mt-8 px-4 py-2 bg-pink-500 text-white font-bold rounded-lg shadow-lg hover:bg-pink-600 transition"
+          onClick={handlePageTurn} // Trigger the next page flip
+        >
+          Turn the Page
+        </button>
+      </div>
+  );
+}
+
+
+
