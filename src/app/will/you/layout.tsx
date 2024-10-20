@@ -1,9 +1,6 @@
 "use client";
 import HTMLFlipBook from "react-pageflip";
 import React, { useRef } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { BackgroundGradientAnimation } from "@/components/ui/background-gradient-animation";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { dancing_script } from "@/lib/fonts"; // Import your custom font
 import { CarouselEvent } from "@/components/ui/carouselEvent";
@@ -11,7 +8,7 @@ import { SparklesCore } from "@/components/ui/sparkles";
 
 export default function Home() {
   const pageFlipRef = useRef<any>(null);
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2000 })]);
+  // const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2000 })]);
   const line1 = `"To my number one favourite person"`;
 
   return (
@@ -31,22 +28,40 @@ export default function Home() {
       <div className="relative z-20 flex flex-col items-center justify-center text-center min-h-screen">
         
         <div className="bg-clip-text text-transparent drop-shadow-2xl bg-gradient-to-b from-white/80 to-white/20 mb-12">
-          <TextGenerateEffect
-            words={line1}
-            className={`text-5xl md:text-8xl lg:text-9xl ${dancing_script.className} font-cursive`} // Apply cursive font
-            style={{ fontFamily: "'Dancing Script', cursive" }} // Ensure fallback cursive font
-          />
+        <TextGenerateEffect
+          words={line1}
+          className={`text-5xl md:text-8xl lg:text-9xl ${dancing_script.className} font-cursive`} // Apply cursive font via CSS
+        />
         </div>
 
         {/* PageFlip book animation */}
         <div className="mb-12">
-          <HTMLFlipBook
+        <HTMLFlipBook
             ref={pageFlipRef}
             width={400}
             height={500}
+            minWidth={400}
+            maxWidth={600}
+            minHeight={500}
+            maxHeight={700}
+            size="stretch"
+            startPage={0}
+            flippingTime={500}
+            usePortrait={true}
+            drawShadow={true}
+            autoSize={true}
+            startZIndex={0}
+            maxShadowOpacity={0.5}
+            showCover={true}
+            mobileScrollSupport={false}
+            clickEventForward={true}
+            useMouseEvents={true}
+            swipeDistance={50}
+            style={{ border: "10px solid white", borderRadius: "15px" }}  // This is a required prop
+            showPageCorners={true}  // Enable showing page corners
+            disableFlipByClick={false}  // Enable flipping pages by clicking
             className="shadow-2xl rounded-lg overflow-hidden"
-            style={{ border: "10px solid white", borderRadius: "15px" }}
-          >
+            >
             <div className="page bg-pink-100 flex items-center justify-center text-black font-bold text-center text-2xl md:text-3xl lg:text-4xl font-cursive" style={{ fontFamily: "'Dancing Script', cursive" }}>
               <div className="w-full h-full p-8 flex flex-col items-center justify-center">
                 <h2 style={{ fontFamily: "'Dancing Script', cursive" }} className="font-bold text-4xl mb-4">Happy Birthday</h2>

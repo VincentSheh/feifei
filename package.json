@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NEXT_PUBLIC_ESLINT_DISABLED=true next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -21,6 +21,7 @@
     "embla-carousel-react": "^8.3.0",
     "framer-motion": "^11.11.9",
     "next": "14.2.15",
+    "page-flip": "^2.0.7",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.3.0",

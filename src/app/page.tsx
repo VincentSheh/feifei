@@ -1,7 +1,6 @@
 import { HeartFilledIcon } from "@/components/ui/icons";
 import { Meteors } from "@/components/ui/meteors";
 import { SparklesCore } from "@/components/ui/sparkles";
-import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { Button } from "@nextui-org/button";
 import Link from "next/link";
 import { BsHeartbreak } from "react-icons/bs";

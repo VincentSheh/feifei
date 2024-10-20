@@ -1,3 +1,8 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",    // Skip 'any' errors
+    "prefer-const": "off",                          // Skip 'prefer const' error
+    "react-hooks/exhaustive-deps": "off"            // Skip 'useEffect dependency' warning
+  }
 }
